@@ -1,5 +1,5 @@
+import 'package:ap/login.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -16,29 +16,31 @@ class _Home extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         //backgroundColor: Colors.deepPurple,
-        title: Center(child: Text('Home')),
+        title: Center(child: Text('Tareas')),
       ),
-      floatingActionButton: SpeedDial(
-        backgroundColor: Colors.blueAccent,
-        animatedIcon: AnimatedIcons.menu_close,
-        children: [
-          SpeedDialChild(
-            child: Icon(Icons.add),
-            label: 'Agregar tarea',
-            onTap: () => print('Agregar tarea'),
+      drawer: Drawer(
+        child: Container(
+          child: ListView(
+            children: [
+              DrawerHeader(child: Icon(Icons.home, size: 80)),
+              ListTile(
+                leading: Icon(Icons.account_circle),
+                title: Text('cuentas'),
+                onTap: () {
+                  Navigator.of(
+                    context,
+                  ).push(MaterialPageRoute(builder: (context) => Login()));
+                },
+              ),
+            ],
           ),
-          SpeedDialChild(
-            child: Icon(Icons.edit),
-            label: 'Editar tarea',
-            onTap: () => print('Editar tarea'),
-          ),
-        ],
+        ),
       ),
-      //floatingActionButton: FloatingActionButton(
-      //onPressed: nuevatarea,
-      //backgroundColor: Colors.blueAccent,
-      //child: const Icon(Icons.add),
-      // ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: nuevatarea,
+        backgroundColor: Colors.green,
+        child: const Icon(Icons.add),
+      ),
     );
   }
 

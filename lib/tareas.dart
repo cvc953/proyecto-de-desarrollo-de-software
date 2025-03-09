@@ -9,7 +9,7 @@ class Tareas extends StatelessWidget {
         padding: EdgeInsets.all(10),
         child: Row(children: []),
         decoration: BoxDecoration(
-          color: Colors.blue[200],
+          //color: Colors.blue[200],
           borderRadius: BorderRadius.circular(30),
         ),
       ),
