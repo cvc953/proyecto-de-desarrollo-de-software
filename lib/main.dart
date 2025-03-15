@@ -13,10 +13,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'App de Tareas',
-      theme: ThemeData.light(),
-      darkTheme: ThemeData.dark(),
-      themeMode: ThemeMode.system,
+      theme: ThemeData.dark(),
 
+      //theme: ThemeData.light(),
+      //darkTheme: ThemeData.dark(),
+      //themeMode: ThemeMode.system,
       home: const Paginaprincipal(),
       debugShowCheckedModeBanner: false,
     );

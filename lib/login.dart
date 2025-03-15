@@ -2,6 +2,7 @@ import 'package:ap/BotonInicio.dart';
 import 'package:ap/LoginInput.dart';
 import 'package:ap/google.dart';
 import 'package:flutter/material.dart';
+import 'package:ap/registro.dart';
 
 class Login extends StatelessWidget {
   Login({super.key});
@@ -53,7 +54,14 @@ class Login extends StatelessWidget {
                 '¿no tienes cuenta?',
                 style: TextStyle(color: Colors.grey[600]),
               ),
-              Text('Registrate', style: TextStyle(color: Colors.blueAccent)),
+              GestureDetector(
+                child: Text('Registrate', style: TextStyle(color: Colors.blue)),
+                onTap: () {
+                  Navigator.of(
+                    context,
+                  ).push(MaterialPageRoute(builder: (context) => Registro()));
+                },
+              ),
             ],
           ),
         ),

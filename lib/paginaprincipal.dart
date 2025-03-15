@@ -21,22 +21,23 @@ class _Paginaprincipal extends State<Paginaprincipal> {
     return Scaffold(
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.green,
+        //backgroundColor: Colors.deepOrange.shade300,
         currentIndex: _selectedIndex,
+        type: BottomNavigationBarType.fixed,
         onTap: _navegacionbar,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.task),
+            icon: Icon(Icons.add_task),
             label: 'tareas',
             //backgroundColor: Colors.green,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.workspaces),
+            icon: Icon(Icons.task),
             label: 'tareas en curso',
             //backgroundColor: Colors.green,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.schedule),
+            icon: Icon(Icons.calendar_today),
             label: 'calendario',
             //backgroundColor: Colors.green,
           ),

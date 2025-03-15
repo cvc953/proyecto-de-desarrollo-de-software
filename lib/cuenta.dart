@@ -16,7 +16,7 @@ class _Cuentas extends State<Cuentas> {
     //final screenSize = MediaQuery.onPressedf(context).size;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.deepPurpleAccent,
+        //backgroundColor: Colors.deepPurpleAccent,
         title: Center(child: Text('Cuentas')),
       ),
       body: Center(

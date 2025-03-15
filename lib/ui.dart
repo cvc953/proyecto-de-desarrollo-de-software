@@ -16,13 +16,13 @@ class _Home extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         //backgroundColor: Colors.deepPurple,
-        title: Center(child: Text('Tareas')),
+        //title: Center(child: Text('Tareas')),
       ),
       drawer: Drawer(
         child: Container(
           child: ListView(
             children: [
-              DrawerHeader(child: Icon(Icons.home, size: 80)),
+              DrawerHeader(child: Text('aqui deberia poner un logo')),
               ListTile(
                 leading: Icon(Icons.account_circle),
                 title: Text('cuentas'),
@@ -37,12 +37,67 @@ class _Home extends State<Home> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: nuevatarea,
-        backgroundColor: Colors.green,
-        child: const Icon(Icons.add),
+        onPressed: () {
+          showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: Text('Agregar tarea'),
+                content: TextField(
+                  decoration: InputDecoration(hintText: 'Nombre de la tarea'),
+                ),
+                actions: <Widget>[
+                  TextButton(
+                    child: Text('Agregar'),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                ],
+              );
+            },
+          );
+        },
+        child: Icon(Icons.add),
+
+        //backgroundColor: Colors.deepOrange[300],
+        // child: Icon(Icons.add),
       ),
     );
   }
 
   void nuevatarea() {}
+}
+
+class Dialog extends StatefulWidget {
+  const Dialog({super.key});
+
+  @override
+  State<Dialog> createState() => _DialogState();
+}
+
+class _DialogState extends State<Dialog> {
+  @override
+  Widget build(BuildContext context) => Scaffold(
+    body: Container(
+      padding: EdgeInsets.all(20),
+      child: ElevatedButton(
+        child: Text('Agregar tarea'),
+        onPressed: () {
+          openDialog();
+        },
+      ),
+    ),
+  );
+
+  Future openDialog() => showDialog(
+    context: context,
+    builder:
+        (context) => AlertDialog(
+          title: Text('Agregar tarea'),
+          content: TextField(
+            decoration: InputDecoration(hintText: 'Nombre de la tarea'),
+          ),
+        ),
+  );
 }
