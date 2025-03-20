@@ -57,13 +57,7 @@ class Registro extends StatelessWidget {
                   ),
                 ),
                 onTap: () {
-                  if (password2 == password) {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => Paginaprincipal(),
-                      ),
-                    );
-                  } else {
+                  if (password.toString() != password2.toString()) {
                     showDialog(
                       context: context,
                       builder: (BuildContext context) {
@@ -79,6 +73,12 @@ class Registro extends StatelessWidget {
                           ],
                         );
                       },
+                    );
+                  } else {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => Paginaprincipal(),
+                      ),
                     );
                   }
                 },
